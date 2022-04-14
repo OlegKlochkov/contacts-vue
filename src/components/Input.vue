@@ -1,14 +1,17 @@
 <template>
-  <ContactsList />
+      <label>
+        <p>{{placeholder}}</p>
+        <input :type="type" :value="value" @input=";$emit('updateInput',$event.target.value)" />
+      </label>
 </template>
 
 <script>
-import ContactsList from './components/ContactsList.vue';
-
 export default {
-  name: 'App',
-  components: {
-    ContactsList
+  name: 'InputComponent',
+  props: {
+      placeholder: String,
+      type: String,
+      value: String
   }
 }
 </script>
