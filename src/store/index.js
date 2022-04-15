@@ -9,9 +9,10 @@ export default createStore({
         socialMedia: {
           vk: "vk.com/kazax",
           discord: "kazax#1234",
-          instagram: "ayden_",
+          telegram: "ayden_",
           github: "AminovAyden",
         },
+        fullyVisible: false
       },
       {
         name: "Ilya Rakcheev",
@@ -19,9 +20,10 @@ export default createStore({
         socialMedia: {
           vk: "vk.com/rakcha",
           discord: "rakcha#1234",
-          instagram: "rakchik",
+          telegram: "rakchik",
           github: "RakcheevIlya",
         },
+        fullyVisible: false
       },
     ]
   },
