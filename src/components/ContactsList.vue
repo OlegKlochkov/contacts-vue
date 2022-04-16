@@ -1,8 +1,9 @@
 <template>
   <div class="ContactsList">
+    <input type="text" v-model="searchQuery">
     <div class="CurrentContacts">
       <div
-        v-for="(contact, index) in $store.getters.getContacts"
+        v-for="(contact, index) in computedContacts"
         :key="index"
         :class="{ ContactsListItem: true }"
       >
@@ -28,14 +29,14 @@
         placeholder="ФИО"
         label="Имя:"
         type="text"
-        @updateInput="contact.name = name"
+        @updateInput="contact.name = $event"
       />
       <InputComponent class="InputComponent"
         v-bind:class="{InvalidInput: !validPhone, InputComponent}"
         placeholder="+7(___)-___-__-__"
         label="Телефон:"
         type="text"
-        @updateInput="contact.phone = phone"
+        @updateInput="contact.phone = $event"
       />
       <InputComponent class="InputComponent"
         placeholder="example"
@@ -95,7 +96,9 @@ export default {
         fullyVisible: false
       },
       validName: true,
-      validPhone: true
+      validPhone: true,
+      searchQuery: '',
+      contacts: this.$store.getters.getContacts
     };
   },
   mounted() {
@@ -108,6 +111,10 @@ export default {
       //useMemo; перерисовка 1 компонента, а не ререндер всей страницы при изменении State
       return this.marks.filter((el) => el === 3);
     },
+    computedContacts() {
+      return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      //return list.filter((item) => item.msg.toLowerCase().includes(this.query))
+    }
   },
 
   //marksItem:element === 4 эквивалентно if element === 4
