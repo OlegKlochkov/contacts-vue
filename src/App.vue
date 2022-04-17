@@ -1,31 +1,31 @@
 <template>
-  <ContactsList />
+  <nav>
+    <router-link to="/">Contacts</router-link> |
+    <router-link to="/add">+</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
 
-<script>
-import ContactsList from './components/ContactsList.vue';
-
-export default {
-  name: 'App',
-  components: {
-    ContactsList
-  }
-}
-</script>
-
 <style>
-*{
-  margin: 0;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
-#app {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+nav {
+  padding: 30px;
+}
 
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

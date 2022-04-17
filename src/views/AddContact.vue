@@ -1,27 +1,4 @@
 <template>
-  <div class="ContactsList">
-    <input type="text" v-model="searchQuery">
-    <div class="CurrentContacts">
-      <div
-        v-for="(contact, index) in computedContacts"
-        :key="index"
-        :class="{ ContactsListItem: true }"
-      >
-        <div class="ContactInfo" @click="contact.fullyVisible = !contact.fullyVisible">
-          <h2>{{ contact.name }}</h2>
-          <h2>{{ contact.phone }}</h2>
-        </div>
-        <div
-          class="ContactSocial"
-          v-for="media in Object.entries(contact.socialMedia)"
-          :key="media"
-          :style="contact.fullyVisible ? 'visibility: initial;' : 'visibility: collapse'"
-        >
-        <h3>{{ media[0] }}:</h3>
-        <h3>{{ media[1] }}</h3>
-        </div>
-      </div>
-    </div>
     <div class="AddContact" style="border: 1px solid black">
       <h2>Добавить контакт:</h2>
       <InputComponent class="InputComponent"
@@ -69,11 +46,10 @@
         Добавить
       </button>
     </div>
-  </div>
 </template>
 
 <script>
-import InputComponent from "./Input.vue";
+import InputComponent from "../components/Input.vue";
 
 export default {
   name: "ContactsList",
@@ -97,8 +73,6 @@ export default {
       },
       validName: true,
       validPhone: true,
-      searchQuery: '',
-      contacts: this.$store.getters.getContacts
     };
   },
   mounted() {
@@ -107,17 +81,7 @@ export default {
   methods: {
   },
   computed: {
-    editArray() {
-      //useMemo; перерисовка 1 компонента, а не ререндер всей страницы при изменении State
-      return this.marks.filter((el) => el === 3);
-    },
-    computedContacts() {
-      return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
-      //return list.filter((item) => item.msg.toLowerCase().includes(this.query))
-    }
   },
-
-  //marksItem:element === 4 эквивалентно if element === 4
 };
 </script>
 
@@ -126,53 +90,6 @@ export default {
 *{
   border: 1px solid black;
 }
-.ContactsList {
-  width: 80%;
-  height: 80vh;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.CurrentContacts{
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.ContactsListItem{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.ContactInfo, .ContactSocial{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ContactInfo{
-  height: 64px;
-}
-
-.ContactSocial{
-  width: 95%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
 .AddContact{
   width: 20%;
   display: flex;

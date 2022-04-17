@@ -2,8 +2,10 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    id: 2,
     contacts: [
       {
+        id: 1,
         name: "Aiden Aminov",
         phone: "+79658984535",
         socialMedia: {
@@ -15,6 +17,7 @@ export default createStore({
         fullyVisible: false
       },
       {
+        id: 2,
         name: "Ilya Rakcheev",
         phone: "+79658984535",
         socialMedia: {
@@ -34,6 +37,8 @@ export default createStore({
   },
   mutations: {
     addContact(state, payload){
+      state.id++;
+      payload.id = state.id;
       state.contacts.push(payload);
     }
   },
