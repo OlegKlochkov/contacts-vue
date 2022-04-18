@@ -40,11 +40,17 @@ export default createStore({
       state.id++;
       payload.id = state.id;
       state.contacts.push(payload);
+    },
+    deleteContact(state, payload){
+      state.contacts = state.contacts.filter((contact) => contact.id !== payload);
     }
   },
   actions: {
     addContact_action({commit}, payload){
       commit('addContact', payload)
+    },
+    deleteContact_action({commit}, payload){
+      commit('deleteContact', payload)
     }
   },
   modules: {

@@ -9,7 +9,7 @@
       >
         <div class="ContactInfo" @click="$router.push(`/contacts/${contact.id}`)">
           <h2>{{ contact.name }}</h2>
-          <h2>{{ contact.phone }}</h2>
+          <button @click.stop="$store.dispatch('deleteContact_action', contact.id)">Удалить контакт</button>
         </div>
       </div>
     </div>
@@ -25,8 +25,7 @@ export default {
   data() {
     //State
     return {
-      searchQuery: '',
-      contacts: this.$store.getters.getContacts
+      searchQuery: ''
     };
   },
   mounted() {
@@ -37,8 +36,8 @@ export default {
   computed: {
     //useMemo; перерисовка 1 компонента, а не ререндер всей страницы при изменении State
     computedContacts() {
-      console.log(this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())))
-      return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      let searchResult = this.$store.getters.getContacts.filter((contact) => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      return searchResult.sort((a, b) => a.name[0] > b.name[0]);
     }
   },
 };
