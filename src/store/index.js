@@ -43,6 +43,10 @@ export default createStore({
     },
     deleteContact(state, payload){
       state.contacts = state.contacts.filter((contact) => contact.id !== payload);
+    },
+    editContact(state, payload){
+      let index = state.contacts.findIndex((contact) => contact.id === payload.id);
+      state.contacts[index] = payload;
     }
   },
   actions: {
@@ -51,6 +55,9 @@ export default createStore({
     },
     deleteContact_action({commit}, payload){
       commit('deleteContact', payload)
+    },
+    editContact_action({commit}, payload){
+      commit('editContact', payload);
     }
   },
   modules: {

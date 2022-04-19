@@ -6,9 +6,13 @@
         :key="index"
         :class="{ ContactsListItem: true }"
       >
-        <div class="ContactInfo" @click="$router.push(`/contacts/${contact.id}`)">
+        <div class="ContactInfo">
           <h2>{{ contact.name }}</h2>
-          <h2>{{ contact.phone }}</h2>
+          <router-link :to="`/contacts/edit/${contact.id}`">Edit</router-link>
+        </div>
+        <div class="ContactSocial">
+          <h3>Phone number:</h3>
+          <h3>{{ contact.phone }}</h3>
         </div>
         <div
           class="ContactSocial"
@@ -40,14 +44,10 @@ export default {
     //useEffect
   },
   methods: {
-    logId(obj){
-      console.log(obj);
-    }
   },
   computed: {
     //useMemo; перерисовка 1 компонента, а не ререндер всей страницы при изменении State
     computedContacts() {
-        console.log(parseInt(this.contactId));
         return this.contacts.filter((contact) => contact.id === parseInt(this.contactId));
     }
   },
