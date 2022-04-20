@@ -1,19 +1,45 @@
 <template>
   <nav>
-    <router-link to="/">Contacts</router-link> |
+    <router-link to="/"> <h1>Contacts</h1></router-link> |
     <router-link to="/add">+</router-link> |
-    <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
 </template>
 
 <style>
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+  width: 100%;
+}
+
+h1{
+  font-size: 40px;
+}
+
+h2{
+  font-size: 32px;
+}
+
+h3{
+  font-size: 24px;
+}
+
+p{
+  font-size: 16px;
 }
 
 nav {
