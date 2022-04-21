@@ -64,6 +64,8 @@ export default {
   align-items: center;
   justify-content: space-between;
 
+  height: 64px;
+
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }

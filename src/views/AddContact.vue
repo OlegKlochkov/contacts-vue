@@ -1,6 +1,13 @@
 <template>
-    <div class="AddContact" style="border: 1px solid black">
-      <h2>Добавить контакт:</h2>
+    <div class="AddContact">
+      <div class="AddContactHeader">
+        <h2>Добавить контакт:</h2>
+        <img src="../assets/light-mode-delete.png"
+        alt="Add"
+        class="AddContactButton"
+        @click="addContact"
+      />
+      </div>
       <InputComponent class="InputComponent"
         v-bind:class="{InvalidInput: !validName, InputComponent}"
         placeholder="ФИО"
@@ -39,12 +46,12 @@
         type="text"
         @updateInput="contact.socialMedia.github = $event"
       />
-      <button
+<!--       <button
         class="AddContactButton"
-        @click="$store.dispatch('addContact_action', contact)"
+        @click="addContact"
       >
         Добавить
-      </button>
+      </button> -->
     </div>
 </template>
 
@@ -52,7 +59,7 @@
 import InputComponent from "../components/Input.vue";
 
 export default {
-  name: "ContactsList",
+  name: "AddContact",
   components: {
     InputComponent,
   },
@@ -79,6 +86,11 @@ export default {
     //useEffect
   },
   methods: {
+    addContact(){
+      this.$store.dispatch('addContact_action', this.contact);
+      this.$router.push('/');
+    }
+    //TODO: перенести добавление контакта в метод с последующим перенаправлением на главную страницу
   },
   computed: {
   },
@@ -87,23 +99,36 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-*{
-  border: 1px solid black;
-}
 .AddContact{
-  width: 20%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-}
-.AddContact h2{
-  width: 100%;
+
+  border-top: 1px solid black;
 }
 
-.AddContact *{
-  padding-top: 4%;
-  padding-bottom: 4%;
+.AddContactHeader{
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.AddContactHeader, .AddContactHeader *{
+  padding: 0;
+}
+
+.AddContactHeader h2{
+  width: 40%;
+}
+
+.AddContactButton{
+  transform: rotate(45deg);
+  padding: 2%;
 }
 
 .InputComponent{
@@ -113,8 +138,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   
-  padding-top: 2%;
-  padding-bottom: 2%;
+  height: 64px;
+
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .InvalidInput{
@@ -134,6 +161,14 @@ export default {
 </style>
 
 <style>
+.InputComponent p{
+  font-size: 24px;
+}
+
+.InputComponent input{
+  font-size: 20px;
+}
+
 .InvalidInput input{
   border-color: red;
 }

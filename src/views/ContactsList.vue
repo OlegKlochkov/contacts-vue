@@ -1,6 +1,5 @@
 <template>
   <div class="ContactsList">
-    <!--     <input id="filterInput" type="text" v-model="searchQuery"> -->
     <InputComponent
       id="filterInput"
       placeholder="Поиск"
@@ -50,7 +49,7 @@ export default {
       let searchResult = this.$store.getters.getContacts.filter((contact) =>
         contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
-      return searchResult.sort((a, b) => a.name[0] > b.name[0]);
+      return searchResult.sort((a, b) => a.name[0].toLowerCase() > b.name[0].toLowerCase());
     },
   },
 };
@@ -82,10 +81,16 @@ export default {
   align-items: center;
   justify-content: flex-start;
 
-  /* border: 1px solid black; */
+  max-height: 80vh;
 
   overflow-y: auto;
-  overflow-x: hidden;
+}
+
+.CurrentContacts ::-webkit-scrollbar {
+  /* chrome based */
+  display: none;
+  width: 0px;
+  height: 0px;
 }
 
 .ContactsListItem {
