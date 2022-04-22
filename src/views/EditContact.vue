@@ -1,7 +1,7 @@
 <template>
   <div class="EditContact">
     <div class="EditContactHeader">
-      <h2>Добавить контакт:</h2>
+      <h2>Редактировать контакт:</h2>
       <button class="AddContactButton" @click="editContact">Изменить</button>
     </div>
     <InputComponent

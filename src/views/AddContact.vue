@@ -46,12 +46,6 @@
         type="text"
         @updateInput="contact.socialMedia.github = $event"
       />
-<!--       <button
-        class="AddContactButton"
-        @click="addContact"
-      >
-        Добавить
-      </button> -->
     </div>
 </template>
 
