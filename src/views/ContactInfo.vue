@@ -4,13 +4,13 @@
       <h2>{{ contact.name }}</h2>
       <router-link :to="`/contacts/edit/${contact.id}`">Edit</router-link>
     </div>
-    <div class="ContactSocial">
+    <div class="ContactSocial" v-if="contact.phone">
       <h3>Phone number:</h3>
       <h3>{{ contact.phone }}</h3>
     </div>
     <div
       class="ContactSocial"
-      v-for="media in Object.entries(contact.socialMedia)"
+      v-for="media in Object.entries(contact.socialMedia).filter((el) => el[1])"
       :key="media"
     >
       <h3>{{ media[0] }}:</h3>
@@ -43,9 +43,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* * {
-  border: 1px solid black;
-} */
 .ContactInfoPage {
   width: 70%;
   display: flex;
