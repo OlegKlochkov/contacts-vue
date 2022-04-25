@@ -14,7 +14,6 @@ export default createStore({
           telegram: "ayden_",
           github: "AminovAyden",
         },
-        fullyVisible: false
       },
       {
         id: 2,
@@ -26,7 +25,6 @@ export default createStore({
           telegram: "rakchik",
           github: "RakcheevIlya",
         },
-        fullyVisible: false
       },
     ]
   },

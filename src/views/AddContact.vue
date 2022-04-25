@@ -9,14 +9,14 @@
       />
       </div>
       <InputComponent class="InputComponent"
-        v-bind:class="{InvalidInput: !validName, InputComponent}"
+        :class="{InvalidInput: contact.name === ''}"
         placeholder="ФИО"
         label="Имя:"
         type="text"
-        @updateInput="contact.name = $event"
+        :value="contact.name"
+        @updateInput="contact.name = $event.trim();"
       />
       <InputComponent class="InputComponent"
-        v-bind:class="{InvalidInput: !validPhone, InputComponent}"
         placeholder="+7(___)-___-__-__"
         label="Телефон:"
         type="text"
@@ -70,10 +70,7 @@ export default {
           telegram: "",
           github: "",
         },
-        fullyVisible: false
       },
-      validName: true,
-      validPhone: true,
     };
   },
   mounted() {
@@ -81,10 +78,10 @@ export default {
   },
   methods: {
     addContact(){
+      if(!this.contact.name){return;}
       this.$store.dispatch('addContact_action', this.contact);
       this.$router.push('/');
     }
-    //TODO: перенести добавление контакта в метод с последующим перенаправлением на главную страницу
   },
   computed: {
   },
@@ -140,12 +137,10 @@ export default {
 
 .InvalidInput{
   position: relative;
-
-  padding-bottom: 10%;
 }
 
 .InvalidInput ::after{
-  content: 'Неправильный формат ввода';
+  content: 'Обязательное поле';
   color: red;
   position: absolute;
   bottom: 0%;
