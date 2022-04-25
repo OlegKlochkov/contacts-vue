@@ -54,4 +54,19 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.InputComponent p {
+  font-size: 24px;
+}
+
+.InputComponent input {
+  font-size: 20px;
+  width: 30%;
+  max-width: 200px;
+  min-width: 150px;
+}
+
+.InvalidInput input {
+  border-color: red;
+}
 </style>

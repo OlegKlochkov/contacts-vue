@@ -145,17 +145,3 @@ export default {
   font-size: 12px;
 }
 </style>
-
-<style>
-.InputComponent p {
-  font-size: 24px;
-}
-
-.InputComponent input {
-  font-size: 20px;
-}
-
-.InvalidInput input {
-  border-color: red;
-}
-</style>
