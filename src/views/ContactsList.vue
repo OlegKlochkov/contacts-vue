@@ -17,7 +17,7 @@
           @click="$router.push(`/contacts/${contact.id}`)"
         >
           <h2>{{ contact.name }}</h2>
-          <img class="DeleteButton" src="../assets/light-mode-delete.png" alt="delete" @click.stop="$store.dispatch('deleteContact_action', contact.id)"/>
+          <img class="DeleteButton" src="../assets/delete.png" alt="delete" @click.stop="$store.dispatch('deleteContact_action', contact.id)"/>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ export default {
   height: 32px;
   border-radius: 10px;
 
-  background: url("../assets/light-mode-search.png") left no-repeat;
+  background: url("../assets/search.png") left no-repeat;
   padding-left: 26px;
 
   color: black;

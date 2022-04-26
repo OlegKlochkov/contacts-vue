@@ -1,10 +1,22 @@
 <template>
-  <nav>
+<!--   <nav>
     <router-link to="/"> <h1>Contacts</h1></router-link> |
     <router-link to="/add">+</router-link> |
-  </nav>
+  </nav> -->
+  <HeaderElement />
   <router-view/>
 </template>
+
+<script>
+import HeaderElement from './components/Header.vue';
+
+export default{
+  name: "App",
+  components: {
+    HeaderElement
+  }
+}
+</script>
 
 <style>
 *{

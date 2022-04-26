@@ -1,8 +1,7 @@
 <template>
   <div class="EditContact">
     <div class="EditContactHeader">
-      <h2>Редактировать контакт:</h2>
-      <button class="AddContactButton" @click="editContact">Изменить</button>
+      <img class="EditContactButton" src="../assets/save.png" alt="save changes" @click="editContact"/>
     </div>
     <InputComponent
       class="InputComponent"
@@ -110,11 +109,15 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .EditContactHeader, .EditContactHeader *{
   padding: 0;
+}
+
+.EditContactButton{
+  padding: 2%;
 }
 
 .InputComponent {

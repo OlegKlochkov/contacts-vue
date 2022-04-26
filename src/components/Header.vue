@@ -1,44 +1,60 @@
 <template>
-  <nav class="HeaderElement" v-if="route === '/'">
-    <h1 v-if="route === '/'">Contacts</h1>
-    <router-link to="/add" v-if="route === '/'">+</router-link>
-  </nav>
-
-  <nav
-    class="HeaderElement"
-    v-else-if="route.includes('/contacts/') && !route.path.includes('edit')"
-  >
-    <router-link to="/">
-      <img src="" alt="backImg" />
-      <h2>Contacts</h2>
+  <nav class="HeaderElement HeaderContacts" v-if="computedRoute.path === '/'">
+    <h2>Контакты</h2>
+    <router-link to="/add">
+      <img src="../assets/delete.png" alt="backImg" style="transform: rotate(45deg)"/>
     </router-link>
-    <router-link :to="`/contacts/edit/${$route.params.id}`"> Edit </router-link>
   </nav>
 
-  <nav class="HeaderElement" v-else-if="route === '/add'">
-    <router-link @click="$router.go(-1)"> Cancel </router-link>
-    <h2>Add Contact</h2>
+  <nav class="HeaderElement" v-else-if="computedRoute.name === 'ContactInfo'">
+    <router-link to="/">
+      <img src="../assets/back.png" alt="backImg" />
+      <h2>Контакты</h2>
+    </router-link>
   </nav>
 
-  <nav
-    class="HeaderElement"
-    v-else-if="route.includes('/contacts/') && route.path.includes('edit')"
-  >
-    <router-link @click="$router.go(-1)"> Cancel </router-link>
-    <h2>Edit Contact</h2>
+  <nav class="HeaderElement" v-else-if="computedRoute.name === 'AddContact'">
+    <router-link to="/"> Cancel </router-link>
+    <h2>Добавить контакт</h2>
+  </nav>
+
+  <nav class="HeaderElement HeaderEdit" v-else-if="computedRoute.name === 'EditContact'">
+    <router-link :to="`/contacts/${computedRoute.params.id}`">
+      Отмена
+    </router-link>
+    <h2>Редактирование</h2>
   </nav>
 </template>
 
 <script>
 export default {
   name: "HeaderElement",
-  data() {
-    return {
-      route: this.$route.path,
-    };
+  computed: {
+    computedRoute() {
+      return this.$route;
+    },
   },
 };
 </script>
 
 <style scoped>
+.HeaderElement{
+  width: 70%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.HeaderElement a{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.HeaderContacts h2, .HeaderEdit h2{
+  margin: 0 auto;
+}
 </style>

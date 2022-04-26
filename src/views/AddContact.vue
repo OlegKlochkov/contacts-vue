@@ -2,7 +2,7 @@
     <div class="AddContact">
       <div class="AddContactHeader">
         <h2>Добавить контакт:</h2>
-        <img src="../assets/light-mode-delete.png"
+        <img src="../assets/delete.png"
         alt="Add"
         class="AddContactButton"
         @click="addContact"

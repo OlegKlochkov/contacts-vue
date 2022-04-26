@@ -2,7 +2,9 @@
   <div class="ContactInfoPage">
     <div class="ContactInfo">
       <h2>{{ contact.name }}</h2>
-      <router-link :to="`/contacts/edit/${contact.id}`">Edit</router-link>
+      <router-link class="EditButton" :to="`/contacts/edit/${contact.id}`">
+        <img src="../assets/edit.png" alt="edit"/>
+      </router-link>
     </div>
     <div class="ContactSocial" v-if="contact.phone">
       <h3>Phone number:</h3>
@@ -21,7 +23,7 @@
 
 <script>
 export default {
-  name: "ContactsList",
+  name: "ContactInfo",
   components: {},
   props: {},
   data() {
@@ -51,6 +53,10 @@ export default {
   justify-content: space-between;
 
   border-top: 1px solid black;
+}
+
+.EditButton{
+  padding: 2%;
 }
 
 .ContactInfo,
