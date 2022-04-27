@@ -81,4 +81,10 @@ export default {
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
+@media screen and (max-width: 550px){
+  .ContactInfoPage {
+  width: 90%;
+  }
+}
 </style>

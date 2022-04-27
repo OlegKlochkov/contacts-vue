@@ -147,4 +147,10 @@ export default {
   right: 0%;
   font-size: 12px;
 }
+
+@media screen and (max-width: 550px){
+  .AddContact {
+  width: 90%;
+  }
+}
 </style>

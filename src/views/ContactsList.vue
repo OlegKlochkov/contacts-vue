@@ -127,6 +127,12 @@ export default {
   margin: 1%;
   cursor: pointer;
 }
+
+@media screen and (max-width: 550px){
+  .ContactsList {
+  width: 90%;
+  }
+}
 </style>
 
 <style>
