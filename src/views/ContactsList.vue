@@ -132,6 +132,24 @@ export default {
   .ContactsList {
   width: 90%;
   }
+  #filterInput{
+    margin-bottom: 5%;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  .ContactsListItem{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+
+  .DeleteButton{
+    filter: invert(100%);
+  }
+
+  #filterInput{
+    filter: invert(100%);
+  }
 }
 </style>
 

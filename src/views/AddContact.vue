@@ -153,4 +153,14 @@ export default {
   width: 90%;
   }
 }
+
+@media (prefers-color-scheme: dark){
+  .AddContact{
+    border-top: 1px solid white;
+  }
+
+  .InputComponent{
+    filter: invert(100%);
+  }
+}
 </style>

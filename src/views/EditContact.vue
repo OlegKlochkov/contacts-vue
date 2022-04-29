@@ -153,4 +153,19 @@ export default {
   width: 90%;
   }
 }
+
+@media (prefers-color-scheme: dark){
+  .EditContactButton{
+    filter: invert(100%);
+  }
+  
+  .EditContact{
+    border-top: 1px solid white;
+  }
+
+  .InputComponent{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+}
 </style>

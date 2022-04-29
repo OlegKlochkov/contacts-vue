@@ -1,8 +1,4 @@
 <template>
-<!--   <nav>
-    <router-link to="/"> <h1>Contacts</h1></router-link> |
-    <router-link to="/add">+</router-link> |
-  </nav> -->
   <HeaderElement />
   <router-view/>
 </template>
@@ -19,6 +15,11 @@ export default{
 </script>
 
 <style>
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
 *{
   margin: 0;
   box-sizing: border-box;
@@ -36,6 +37,7 @@ export default{
   align-items: center;
   justify-items: flex-start;
   width: 100%;
+  height: 100%;
 }
 
 h1{
@@ -80,5 +82,19 @@ nav a.router-link-exact-active {
 
 .InvalidInput input {
   border-color: red;
+}
+
+@media (prefers-color-scheme: dark){
+  #app{
+    background: black;
+    color: white;
+  }
+  nav a{
+    color: white;
+  }
+
+  .InputComponent p{
+    color: black;
+  }
 }
 </style>
