@@ -92,9 +92,5 @@ nav a.router-link-exact-active {
   nav a{
     color: white;
   }
-
-  .InputComponent p{
-    color: black;
-  }
 }
 </style>
