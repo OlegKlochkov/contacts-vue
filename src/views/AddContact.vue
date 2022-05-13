@@ -140,7 +140,8 @@ export default {
 
 .InvalidInput ::after{
   content: 'Обязательное поле';
-  color: red;
+  color: red !important;
+  filter: none !important;
   position: absolute;
   bottom: 0%;
   right: 0%;
@@ -153,25 +154,27 @@ export default {
   }
 }
 
-@media (prefers-color-scheme: dark){
-  .AddContact{
-    border-top: 1px solid white;
-  }
+[data-theme='dark'] .AddContact{
+  border-top: 1px solid white;
+}
 
-  .AddContactButton{
-    filter: invert(100%);
-  }
+[data-theme='dark'] .AddContactButton{
+  filter: invert(100%);
+}
 
-  .InputComponent{
-    filter: invert(100%);
-  }
+[data-theme='dark'] .InputComponent{
+  background: black;
+  color: white;
 }
 </style>
 
 <style>
-@media (prefers-color-scheme: dark){
-    .AddContact .InputComponent p{
-    color: black;
-  }
+[data-theme='dark'] .InputComponent input{
+  background: black;
+  color: white;
+}
+
+[data-theme='dark'] .InvalidInput input:focus{/*не работает*/
+  border-color: red;
 }
 </style>

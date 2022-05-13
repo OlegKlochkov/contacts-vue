@@ -88,18 +88,16 @@ export default {
   }
 }
 
-@media (prefers-color-scheme: dark){
-  .EditButton{
-    filter: invert(100%);
-  }
+[data-theme='dark'] .EditButton{
+  filter: invert(100%);
+}
 
-  .ContactInfoPage{
-    border-top: 1px solid white;
-  }
+[data-theme='dark'] .ContactInfoPage{
+  border-top: 1px solid white;
+}
 
-  .ContactSocial{
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-  }
+[data-theme='dark'] .ContactSocial{
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 </style>

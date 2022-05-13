@@ -154,18 +154,16 @@ export default {
   }
 }
 
-@media (prefers-color-scheme: dark){
-  .EditContactButton{
-    filter: invert(100%);
-  }
-  
-  .EditContact{
-    border-top: 1px solid white;
-  }
+[data-theme='dark'] .EditContactButton{
+  filter: invert(100%);
+}
 
-  .InputComponent{
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-  }
+[data-theme='dark'] .EditContact{
+  border-top: 1px solid white;
+}
+
+[data-theme='dark'] .InputComponent{
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 </style>

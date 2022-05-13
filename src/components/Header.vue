@@ -66,12 +66,11 @@ export default {
   }
 }
 
-@media (prefers-color-scheme: dark){
-  .AddButton{
-    filter: invert(100%);
-  }
-  .BackButton{
-    filter: invert(100%);
-  }
+[data-theme='dark'] .AddButton{
+  filter: invert(100%);
+}
+
+[data-theme='dark'] .BackButton{
+  filter: invert(100%);
 }
 </style>

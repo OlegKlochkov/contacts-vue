@@ -65,7 +65,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 #filterInput {
@@ -102,6 +102,8 @@ export default {
 
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+
+  cursor: pointer;
 }
 
 .ContactInfo,
@@ -131,25 +133,26 @@ export default {
 @media screen and (max-width: 550px){
   .ContactsList {
   width: 90%;
+  max-height: 70%;
   }
   #filterInput{
     margin-bottom: 5%;
   }
 }
 
-@media (prefers-color-scheme: dark){
-  .ContactsListItem{
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-  }
+[data-theme='dark'] .ContactsListItem{
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
 
-  .DeleteButton{
-    filter: invert(100%);
-  }
+[data-theme='dark'] .DeleteButton{
+  filter: invert(100%);
+}
 
-  #filterInput{
-    filter: invert(100%);
-  }
+[data-theme='dark']   #filterInput{
+  filter: invert(100%);
+  /* переписать без использования фильтра 
+  (заменить в background картинку) */
 }
 </style>
 
@@ -168,7 +171,7 @@ export default {
   height: 32px;
   border-radius: 10px;
 
-  background: url("../assets/search.png") left no-repeat;
+  background: url("../assets/search.png") left no-repeat white;
   padding-left: 26px;
 
   color: black;
